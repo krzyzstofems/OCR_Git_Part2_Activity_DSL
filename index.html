@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<header>
-			<h4 style="color:black;text-align:center;">Le message s'affiche en survolant les zones ci-dessous</h4>
+			<h4 style="color:black;">Le message s'affiche en survolant les zones ci-dessous</h4>
 			<div id="block1"></div>
 			<div id="block2"></div>
 		</header>
@@ -15,10 +15,28 @@
 			<!--
 			var block1 = document.getElementById('block1'),
 				block2 = document.getElementById('block2');
-			block1.addEventListener('mouseover', function() { block1.innerHTML = "Hello"; }, false);
-			block1.addEventListener('mouseout', function() { block1.innerHTML = ""; }, false);
-			block2.addEventListener('mouseover', function() { block2.innerHTML = "world !"; }, false);
-			block2.addEventListener('mouseout', function() { block2.innerHTML = ""; }, false);
+			var evt,blockId;
+			function loadMessage() {
+				if (typeof message != "undefined") {
+					displayMessage();
+				} else {
+					var DSLScript  = document.createElement("script");
+					DSLScript.src  = "DSLscript.js";
+					DSLScript.type = "text/javascript";
+					document.body.appendChild(DSLScript);
+				}
+			}
+			function displayMessage() {
+				if (evt == 'out') {
+					blockId == 1 ? block1.innerHTML = "" : block2.innerHTML = "";
+				} else {
+					blockId == 1 ? block1.innerHTML = message[0] : block2.innerHTML = message[1];
+				}
+			}
+			block1.addEventListener('mouseover', function() { blockId = 1; evt = "over"; loadMessage(); }, false);
+			block1.addEventListener('mouseout', function() { blockId = 1; evt = "out"; displayMessage(); }, false);
+			block2.addEventListener('mouseover', function() { blockId = 2; evt = "over"; loadMessage(); }, false);
+			block2.addEventListener('mouseout', function() { blockId = 2; evt = "out"; displayMessage(); }, false);
 			//-->
 		</script>
 	</body>
