@@ -7,6 +7,9 @@ header {
 }
 div {
 	display:inline-block; vertical-align:top; text-align:center;
-	width:200px; height:50px; margin-top:20px;
+	width:200px; height:50px; margin-top:5px; line-height:50px;
 	background-color:#4D4D4D; border-radius:10px 10px 10px 10px; border:4px grey double;
+}
+h2 {
+	text-align:center; color:black;
 }
