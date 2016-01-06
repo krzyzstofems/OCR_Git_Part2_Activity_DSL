@@ -3,12 +3,23 @@
 	<head>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="style.css"/>
-		<title>Test lecture données EXIF</title>
+		<title>Gestion d'évènemts et Dynamic Script Loading JavaScript</title>
 	</head>
 	<body>
 		<header>
+			<h4 style="color:black;text-align:center;">Le message s'affiche en survolant les zones ci-dessous</h4>
 			<div id="block1"></div>
-			<div id="block1"></div>
+			<div id="block2"></div>
 		</header>
+		<script type="text/javascript">
+			<!--
+			var block1 = document.getElementById('block1'),
+				block2 = document.getElementById('block2');
+			block1.addEventListener('mouseover', function() { block1.innerHTML = "Hello"; }, false);
+			block1.addEventListener('mouseout', function() { block1.innerHTML = ""; }, false);
+			block2.addEventListener('mouseover', function() { block2.innerHTML = "world !"; }, false);
+			block2.addEventListener('mouseout', function() { block2.innerHTML = ""; }, false);
+			//-->
+		</script>
 	</body>
 </html>
